@@ -1,9 +1,7 @@
-"use client"
+'use client'
 
 import { Url } from "next/dist/shared/lib/router/router"
-import Link from "next/link"
-import { usePathname } from "next/navigation"
-import { ReactNode } from "react"
+import { ReactNode, useState } from "react"
 import {
   FaHouse,
   FaMusic,
@@ -13,13 +11,26 @@ import {
   FaUser,
   FaUserPlus,
 } from "react-icons/fa6"
+import SiderMenuItem from "./SiderMenuItem"
+import { onAuthStateChanged } from "firebase/auth"
+import { authFirebase } from "@/app/firebaseConfig"
 
 export default function SiderMenu() {
   interface menuLink {
     icon: ReactNode
     title: string
     link: Url
+    login?: boolean
   }
+
+  const [isLogin, setLogin] = useState<boolean>()
+  onAuthStateChanged(authFirebase, (user) => {
+    if (user) {
+      setLogin(true)
+    } else {
+      setLogin(false)
+    }
+  });
 
   const menu: menuLink[] = [
     {
@@ -41,40 +52,38 @@ export default function SiderMenu() {
       icon: <FaHeart />,
       title: "Bài hát yêu thích",
       link: "/wishlist",
+      login: isLogin
     },
     {
       icon: <FaRightFromBracket />,
       title: "Đăng xuất",
       link: "/logout",
+      login: isLogin
     },
     {
       icon: <FaUser />,
       title: "Đăng nhập",
       link: "/login",
+      login: !isLogin
     },
     {
       icon: <FaUserPlus />,
       title: "Đăng ký",
       link: "/register",
+      login: !isLogin
     },
   ]
-
-  const pathname = usePathname()
 
   return (
     <>
       {menu.map((item, index) => (
-        <Link
+        <SiderMenuItem 
           key={index}
-          href={item.link}
-          className={
-            "flex items-center mb-[30px] hover:text-primary " +
-            (item.link === pathname ? "text-primary" : "text-white")
-          }
-        >
-          <span className={"text-[22px] mr-[20px]"}>{item.icon}</span>
-          <span className={"text-[16px] font-[700]"}>{item.title}</span>
-        </Link>
+          icon={item.icon}
+          title={item.title}
+          link={item.link}
+          login={item.login}
+        />
       ))}
     </>
   )
