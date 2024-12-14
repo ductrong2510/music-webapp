@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* range-sm */
+.range-sm::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #00ADEF;
+    cursor: pointer;
+    box-shadow: 0px 0px 8px 0px #000000EB;
+  }
+  
+.range-sm::-moz-range-thumb {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #00ADEF;
+  cursor: pointer;
+  box-shadow: 0px 0px 8px 0px #000000EB;
+}
+/* End range-sm */
+
+.box-button-play .inner-button-pause {
+  display: none
+}
+.box-button-play.play .inner-button-play {
+  display: none
+}
+.box-button-play.play .inner-button-pause {
+  display: block
+}
+
+.volume-control .button-volume-muted {
+  display: none;
+}
+.volume-control.muted .button-volume-muted {
+  display: block;
+}
+.volume-control.muted .button-volume-on {
+  display: none;
+}
