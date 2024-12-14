@@ -21,7 +21,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${quicksand.className} bg-[#292929]`}>
         <div className="container mx-auto flex items-start">
-          <div className="w-[280px] h-full">
+          <div className="w-[280px]">
             <Sider />
           </div>
           <div className="ml-[20px] flex-1">
