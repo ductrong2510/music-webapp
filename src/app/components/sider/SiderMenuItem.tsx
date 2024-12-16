@@ -9,7 +9,7 @@ export default function SiderMenuItem(props: any) {
         href={props.link}
         className={
           "flex items-center mb-[30px] hover:text-primary " +
-          (props.link === pathname ? "text-primary" : "text-white") + 
+          (props.link === pathname ? "text-primary" : "text-white") +
           (props.login == undefined || props.login == true ? " " : " hidden")
         }
       >

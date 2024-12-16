@@ -6,7 +6,7 @@ export default function FormInput(props: any) {
     id = "",
     placeholder = "",
     required = false,
-  } = props;
+  } = props
 
   return (
     <>
@@ -30,5 +30,5 @@ export default function FormInput(props: any) {
         />
       </div>
     </>
-  );
+  )
 }

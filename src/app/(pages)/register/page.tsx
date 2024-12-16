@@ -5,7 +5,7 @@ import FormInput from "@/app/components/form/FormInput"
 import Title from "@/app/components/title/Title"
 import { authFirebase, dbFirebase } from "@/app/firebaseConfig"
 import { createUserWithEmailAndPassword } from "firebase/auth"
-import {  ref, set } from "firebase/database"
+import { ref, set } from "firebase/database"
 import { useRouter } from "next/navigation"
 
 export default function LoginPage() {
@@ -18,19 +18,19 @@ export default function LoginPage() {
     const auth = authFirebase
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        alert("Đăng ký thành công")
+        alert("Đăng ký thành công!")
         const user = userCredential.user
         const userId = user.uid
         set(ref(dbFirebase, "users/" + userId), {
           fullName: fullName,
           email: email,
-        })
-        .then(()=>{
+        }).then(() => {
           router.push("/")
         })
       })
       .catch((error) => {
-        console.error("Error adding user data to database:", error);
+        console.error("Error adding user data to database:", error)
+        alert("Email hoặc mật khẩu không hợp lệ!")
       })
   }
   return (
