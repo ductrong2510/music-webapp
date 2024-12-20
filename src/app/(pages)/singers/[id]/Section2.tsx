@@ -68,6 +68,7 @@ export default async function Section2(props: { singerId: string }) {
             listen: value.listen,
             singer: value.singer,
             link: `/songs/${key}`,
+            wishlist: value.wishlist
           });
         }
       }

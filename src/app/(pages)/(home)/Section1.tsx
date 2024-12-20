@@ -29,6 +29,7 @@ export default async function Section1() {
           singers: singers,
           audio: value.audio,
           link: `songs/${key}`,
+          wishlist: value.wishlist
         });
       }
       resolve(data);

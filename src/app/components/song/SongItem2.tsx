@@ -2,6 +2,7 @@
 import Link from "next/link"
 import { FaPlay, FaRegHeart } from "react-icons/fa6"
 import ButtonPlay from "../button/ButtonPlay"
+import ButtonWishlist from "../button/ButtonWishlist"
 
 export default function SongItem2(props: any) {
   const {
@@ -12,7 +13,8 @@ export default function SongItem2(props: any) {
     singers = "",
     link = "",
     audio = "",
-    songlist = ""
+    songlist = "",
+    wishlist = []
   } = props
 
   return (
@@ -41,9 +43,10 @@ export default function SongItem2(props: any) {
           <span className="font-[400] text-[14px] text-white">
             {listen.toLocaleString()} lượt nghe
           </span>
-          <button className="text-[20px] text-white ml-[18px]">
+          {/* <button className="text-[20px] text-white ml-[18px]">
             <FaRegHeart />
-          </button>
+          </button> */}
+          <ButtonWishlist id={id} wishlist={wishlist} songitem="2" classname="text-[20px] ml-[18px]"/>
         </div>
       </div>
     </>

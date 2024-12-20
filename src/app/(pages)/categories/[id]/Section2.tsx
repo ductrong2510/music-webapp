@@ -31,6 +31,7 @@ export default async function Section2(props: { id: string }) {
           singers: singers,
           listen: value.listen,
           link: `/songs/${key}`,
+          wishlist: value.wishlist
         })
       }
       resolve(data)

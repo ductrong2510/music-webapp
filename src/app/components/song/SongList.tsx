@@ -17,6 +17,7 @@ export default function SongList(props: any) {
             audio={item.audio}
             link={item.link}
             songlist={songlist}
+            wishlist={item.wishlist}
           />
         ))}
       </div>

@@ -1,7 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link"
-import { FaPlay, FaRegHeart } from "react-icons/fa6"
 import ButtonPlay from "../button/ButtonPlay"
+import ButtonWishlist from "../button/ButtonWishlist"
+import { authFirebase } from "@/app/firebaseConfig"
 
 export default function SongItem(props: any) {
   const {
@@ -12,7 +13,8 @@ export default function SongItem(props: any) {
     audio = "",
     singers = "",
     link = "",
-    songlist = ""
+    songlist = "",
+    wishlist = []
   } = props
 
   return (
@@ -36,13 +38,8 @@ export default function SongItem(props: any) {
           </div>
         </div>
         <div>
-          {/* <button className="inline-flex w-[34px] h-[34px] rounded-full items-center justify-center mr-[10px] text-[15px] text-white border border-white">
-            <FaPlay />
-          </button> */}
           <ButtonPlay {...props} classname="inline-flex w-[34px] h-[34px] rounded-full items-center justify-center mr-[10px] text-[15px] text-white border border-white" />
-          <button className="inline-flex w-[34px] h-[34px] rounded-full items-center justify-center text-[15px] text-white border border-white">
-            <FaRegHeart />
-          </button>
+          <ButtonWishlist id={id} wishlist={wishlist} songitem="1" classname="inline-flex w-[34px] h-[34px] rounded-full items-center justify-center text-[15px] text-white border"/>
         </div>
       </div>
     </>
