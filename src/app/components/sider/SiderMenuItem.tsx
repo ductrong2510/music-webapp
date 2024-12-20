@@ -9,8 +9,7 @@ export default function SiderMenuItem(props: any) {
         href={props.link}
         className={
           "flex items-center mb-[30px] hover:text-primary " +
-          (props.link === pathname ? "text-primary" : "text-white") +
-          (props.login == undefined || props.login == true ? " " : " hidden")
+          (props.link === pathname ? "text-primary" : "text-white")
         }
       >
         <span className={"text-[22px] mr-[20px]"}>{props.icon}</span>

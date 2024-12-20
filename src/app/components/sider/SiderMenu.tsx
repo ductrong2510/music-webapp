@@ -1,4 +1,4 @@
-'use client'
+"use client"
 
 import { Url } from "next/dist/shared/lib/router/router"
 import { ReactNode, useState } from "react"
@@ -23,14 +23,14 @@ export default function SiderMenu() {
     login?: boolean
   }
 
-  const [isLogin, setLogin] = useState<boolean>()
+  const [isLogin, setLogin] = useState<boolean>(false)
   onAuthStateChanged(authFirebase, (user) => {
     if (user) {
       setLogin(true)
     } else {
       setLogin(false)
     }
-  });
+  })
 
   const menu: menuLink[] = [
     {
@@ -52,39 +52,42 @@ export default function SiderMenu() {
       icon: <FaHeart />,
       title: "Bài hát yêu thích",
       link: "/wishlist",
-      login: isLogin
+      login: isLogin,
     },
     {
       icon: <FaRightFromBracket />,
       title: "Đăng xuất",
       link: "/logout",
-      login: isLogin
+      login: isLogin,
     },
     {
       icon: <FaUser />,
       title: "Đăng nhập",
       link: "/login",
-      login: !isLogin
+      login: !isLogin,
     },
     {
       icon: <FaUserPlus />,
       title: "Đăng ký",
       link: "/register",
-      login: !isLogin
+      login: !isLogin,
     },
   ]
 
   return (
     <>
-      {menu.map((item, index) => (
-        <SiderMenuItem 
-          key={index}
-          icon={item.icon}
-          title={item.title}
-          link={item.link}
-          login={item.login}
-        />
-      ))}
+      {menu.map((item, index) =>
+        (item.login || item.login == undefined) ? (
+          <SiderMenuItem
+            key={index}
+            icon={item.icon}
+            title={item.title}
+            link={item.link}
+          />
+        ) : (
+          <></>
+        )
+      )}
     </>
   )
 }
