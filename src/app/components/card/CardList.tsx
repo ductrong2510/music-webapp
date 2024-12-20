@@ -5,7 +5,7 @@ export default function CardList(props: any) {
 
   return (
     <>
-      <div className="grid grid-cols-5 gap-[20px]">
+      <div className="grid grid-cols-5 gap-[15px]">
         {cardList.map((item: any, index: number) => (
           <CardItem
             key={index}

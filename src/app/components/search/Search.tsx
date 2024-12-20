@@ -28,7 +28,7 @@ export default function Search() {
           name="keyword"
           defaultValue={defaultKeyword}
           placeholder="Tìm kiếm..."
-          className="border-0 outline-0 font-[600] text-[16px] text-white bg-transparent"
+          className="w-full border-0 outline-0 font-[600] text-[16px] text-white bg-transparent"
         />
       </form>
     </>
