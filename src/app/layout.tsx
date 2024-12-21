@@ -8,7 +8,7 @@ import Play from "./components/play/Play";
 const quicksand = Quicksand({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Project 5",
+  title: "Music App",
   description: "Project 5: Nghe nhạc trực tuyến",
 };
 

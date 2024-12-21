@@ -85,7 +85,7 @@ export default function SiderMenu() {
             link={item.link}
           />
         ) : (
-          <></>
+          <div key={index}></div>
         )
       )}
     </>
